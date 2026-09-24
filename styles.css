@@ -1,0 +1,159 @@
+/* =========================================================
+   WEB PERSONAL · Carles Tudela Garcia
+   Minimalista + colors vistosos + títols en degradat
+   ========================================================= */
+
+/* 1. PALETA VISTOSA */
+:root{
+  --acid:#d7ff3e; --magenta:#ff2f7e; --cian:#2fe8ff; --ambre:#ffb020; --lila:#9b5cff;
+  --fons:#0a0a0b; --fons-2:#0e0e10; --text:#e9e9ec; --suau:#8a8a8f; --llinia:#232327;
+  --accent-fill:#d7ff3e; --accent-text:#d7ff3e; --on-accent:#0a0a0b; --meta:#0a0a0b;
+  --c2:var(--cian); /* segon color del degradat per defecte */
+  --display:"Space Grotesk",system-ui,sans-serif;
+  --cos:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --ample:1080px; --espai:clamp(4rem,10vh,8rem); --trans:.4s ease;
+}
+[data-theme="light"]{
+  --fons:#f4f4f1; --fons-2:#ecece9; --text:#17171a; --suau:#6b6b72; --llinia:#dcdcd6;
+  --accent-fill:#c9f22e; --accent-text:#4f6d04; --on-accent:#0a0a0b; --meta:#f4f4f1;
+  --acid:#8bb500; --magenta:#e0116a; --cian:#0aa8c4; --ambre:#c47600; --lila:#6a2fd6;
+  --c2:var(--cian);
+}
+/* 2. MAPA DE COLORS (primer + segon del degradat) */
+[data-color="acid"]{--c:var(--acid); --c2:var(--cian)}
+[data-color="cian"]{--c:var(--cian); --c2:var(--lila)}
+[data-color="magenta"]{--c:var(--magenta); --c2:var(--ambre)}
+[data-color="ambre"]{--c:var(--ambre); --c2:var(--magenta)}
+[data-color="lila"]{--c:var(--lila); --c2:var(--cian)}
+/* 3. BASE */
+*,*::before,*::after{box-sizing:border-box;transition:background-color .35s ease,border-color .35s ease,color .35s ease}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--fons);color:var(--text);font-family:var(--cos);font-size:clamp(15px,1.05vw,17px);line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;font-weight:500;letter-spacing:-.02em}
+p{margin:0 0 1.1em} a{color:inherit;text-decoration:none} ul,ol{margin:0;padding:0;list-style:none}
+b{font-weight:600;color:#fff} [data-theme="light"] b{color:#000}
+:focus-visible{outline:1px solid var(--accent-text);outline-offset:4px}
+/* 3.5 TÍTOLS EN DEGRADAT (dos colors del estil) */
+.hero__nom,
+.seccio-cab h2,
+.peu__titol{
+  background:linear-gradient(90deg,var(--c,var(--acid)),var(--c2));
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+/* 4. CAPÇALERA */
+.cap-fixa{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;gap:1.4rem;padding:1.1rem clamp(1.25rem,5vw,3rem);background:color-mix(in srgb,var(--fons) 82%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--llinia)}
+.marca{font-family:var(--display);font-weight:500;font-size:1rem;margin-right:auto}
+.nav ul{display:flex;gap:1.6rem}
+.nav a{font-family:var(--mono);font-size:.74rem;color:var(--suau);position:relative}
+.nav a:hover,.nav a[aria-current="true"]{color:var(--text)}
+.nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:2px;background:var(--c,var(--accent-text));transform:scaleX(0);transform-origin:left;transition:transform var(--trans)}
+.nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
+.btn-tema{display:inline-flex;align-items:center;gap:.55rem;background:none;border:1px solid var(--llinia);color:var(--suau);font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem .8rem;cursor:pointer}
+.btn-tema:hover{color:var(--accent-text);border-color:var(--accent-text)}
+.btn-tema__icon{width:12px;height:12px;border:1px solid currentColor;border-radius:50%;background:linear-gradient(currentColor 50%,transparent 50%)}
+[data-theme="light"] .btn-tema__icon{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}
+.btn-menu{display:none;flex-direction:column;gap:6px;background:none;border:0;padding:8px;cursor:pointer}
+.btn-menu span{width:22px;height:1px;background:var(--text)}
+.btn-menu[aria-expanded="true"] span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+.btn-menu[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+.progres{position:absolute;left:0;bottom:-1px;height:2px;width:100%}
+.progres i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acid),var(--cian),var(--lila),var(--magenta))}
+/* 5. HERO */
+.hero{max-width:var(--ample);margin-inline:auto;padding:clamp(7rem,16vh,11rem) clamp(1.25rem,5vw,3rem) var(--espai)}
+.hero__etiqueta{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;color:var(--suau);display:flex;align-items:center;gap:.6rem;margin-bottom:1.8rem}
+.punt{width:8px;height:8px;background:var(--acid);border-radius:50%;box-shadow:0 0 12px var(--acid);animation:puls 2.4s ease infinite}
+@keyframes puls{50%{opacity:.4}}
+.hero__nom{font-size:clamp(3rem,9vw,7rem);font-weight:500}
+.hero__nom .linia{display:block;color:inherit}
+.frase{font-size:clamp(1.1rem,2vw,1.5rem);max-width:44ch;font-family:var(--display);font-weight:400;line-height:1.5;color:var(--text)}
+.accions{display:flex;flex-wrap:wrap;gap:.8rem;margin:2.2rem 0 3rem}
+.btn{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;padding:.9rem 1.5rem;border:1px solid var(--llinia)}
+.btn--primari{background:var(--accent-fill);color:var(--on-accent);border-color:var(--accent-fill)}
+.btn--primari:hover{background:transparent;color:var(--accent-text)}
+.btn--fantasma:hover{border-color:var(--cian);color:var(--cian)}
+.dades{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--llinia);border-block:1px solid var(--llinia);margin:0}
+.dades>div{background:var(--fons);padding:1rem 0}
+.dades dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--suau)}
+.dades dd{margin:.35rem 0 0;font-family:var(--display);font-size:.95rem}
+.viu{color:var(--acid)}
+.fitxa{margin-top:3.5rem;border-top:1px solid var(--llinia);padding-top:2rem}
+.fitxa__cap{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--suau);margin-bottom:1.4rem}
+.bares li{margin-bottom:1.1rem}
+.bares span{display:block;font-family:var(--mono);font-size:.7rem;color:var(--suau);margin-bottom:.5rem}
+.bares i{display:block;height:2px;background:var(--llinia);position:relative}
+.bares i::after{content:"";position:absolute;inset:0;width:0;background:var(--c,var(--acid));transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.peu-fitxa{margin:1.6rem 0 0;font-size:.95rem;color:var(--suau)}
+/* 6. SECCIONS */
+.seccio{max-width:var(--ample);margin-inline:auto;padding:var(--espai) clamp(1.25rem,5vw,3rem);border-top:1px solid var(--llinia);position:relative}
+.seccio--color::before{content:"";position:absolute;top:-1px;left:0;width:64px;height:2px;background:var(--c,var(--acid))}
+.seccio-cab{margin-bottom:clamp(2rem,5vw,3.5rem)}
+.seccio-num{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--c,var(--suau));display:block;margin-bottom:.9rem}
+.seccio-cab h2{font-size:clamp(2rem,5vw,3.4rem)}
+.lead{font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.6;font-family:var(--display);font-weight:400;max-width:52ch;color:var(--text)}
+.sobre-cos p{max-width:58ch;color:var(--suau)}
+.cita{margin:2rem 0;padding-left:1.4rem;border-left:2px solid var(--c,var(--acid));font-family:var(--display);font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.4;max-width:40ch;color:var(--text)}
+.píndoles{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.píndoles li{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suau);padding:.4rem .8rem;border:1px solid var(--llinia)}
+.píndoles li:hover{color:var(--c);border-color:var(--c)}
+.missions{border-top:1px solid var(--llinia)}
+.missio{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1rem,3vw,2.4rem);align-items:baseline;padding:1.6rem .2rem;border-bottom:1px solid var(--llinia);transition:var(--trans)}
+.missio:hover{background:var(--fons-2);padding-left:.8rem}
+.missio__num{font-family:var(--mono);font-size:.68rem;color:var(--suau)}
+.missio__cos h3{font-size:clamp(1.15rem,2.4vw,1.5rem);margin-bottom:.35rem}
+.missio__cos p{color:var(--suau);margin:0;max-width:60ch}
+.missio__marca{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 55%,transparent);padding:.35rem .7rem;white-space:nowrap}
+.missio__marca--actiu{background:color-mix(in srgb,var(--c) 16%,transparent)}
+.inventario{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--llinia);border:1px solid var(--llinia)}
+.objecte{background:var(--fons);padding:1.8rem;position:relative}
+.objecte::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform var(--trans)}
+.objecte:hover::before,.objecte:focus-visible::before{transform:scaleX(1)}
+.objecte:hover,.objecte:focus-visible{background:var(--fons-2)}
+.objecte h3{font-size:1.25rem;margin-bottom:.5rem}
+.objecte p{color:var(--suau);margin:0 0 1rem}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chips li{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.ruta{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--llinia);border:1px solid var(--llinia)}
+.ruta__pas{background:var(--fons);padding:1.5rem 1.2rem;border-top:2px solid transparent}
+.ruta__pas:hover{background:var(--fons-2);border-top-color:var(--c)}
+.ruta__pas span{font-family:var(--mono);font-size:.64rem;color:var(--c);letter-spacing:.15em}
+.ruta__pas h3{font-size:1.05rem;margin:.7rem 0 .4rem}
+.ruta__pas p{color:var(--suau);font-size:.86rem;margin:0}
+/* 7. PEU */
+.peu{border-top:1px solid var(--llinia);padding:var(--espai) clamp(1.25rem,5vw,3rem) 2rem;max-width:var(--ample);margin-inline:auto}
+.peu__dalt{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.peu__titol{font-size:clamp(2rem,5vw,3.4rem);margin:.6rem 0}
+.peu__text{color:var(--suau);max-width:44ch}
+.contacte{font-style:normal;border-top:1px solid var(--llinia)}
+.contacte__fila{padding:1.1rem 0;border-bottom:1px solid var(--llinia);display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center}
+.contacte__fila:last-of-type{border-bottom:0}
+.contacte__fila span{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--suau)}
+.contacte__fila p{margin:0;grid-column:2}
+.contacte__fila a{color:var(--text);border-bottom:1px solid var(--llinia)}
+.contacte__fila a:hover{color:var(--magenta);border-color:var(--magenta)}
+.copiar{background:none;border:1px solid var(--llinia);color:var(--suau);font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem .7rem;cursor:pointer}
+.copiar:hover{color:var(--cian);border-color:var(--cian)}
+.xarxes{display:flex;gap:1.2rem;padding:1.1rem 0}
+.xarxes a{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suau)}
+.xarxes a:hover{color:var(--lila)}
+.peu__legal{margin-top:clamp(2.5rem,7vw,5rem);padding-top:1.2rem;border-top:1px solid var(--llinia);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.68rem;color:var(--suau)}
+.peu__legal p{margin:0}
+.tornar:hover{color:var(--acid)}
+/* 8. ANIMACIÓ */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.25,1)}
+.reveal.visible{opacity:1;transform:none}
+/* 9. RESPONSIVE */
+@media (max-width:860px){.peu__dalt{grid-template-columns:1fr}.inventario{grid-template-columns:1fr}.ruta{grid-template-columns:repeat(2,1fr)}.dades{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){
+  .btn-menu{display:flex}
+  .nav{position:fixed;top:56px;left:0;right:0;background:var(--fons);border-bottom:1px solid var(--llinia);display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+  .nav.oberta{grid-template-rows:1fr}
+  .nav>ul{overflow:hidden;display:flex;flex-direction:column}
+  .nav a{display:block;padding:1rem clamp(1.25rem,5vw,3rem)} .nav a::after{display:none}
+  .btn-tema__txt{display:none} .btn-tema{padding:.5rem}
+  .missio{grid-template-columns:1fr;gap:.5rem} .missio__marca{justify-self:start}
+  .contacte__fila{grid-template-columns:auto 1fr} .copiar{grid-column:2;justify-self:start;margin-top:.4rem}
+}
+/* 10. MOVIMENT REDUÏT */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.reveal{opacity:1;transform:none}}
