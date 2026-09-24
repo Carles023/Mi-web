@@ -8,7 +8,7 @@
   --acid:#d7ff3e; --magenta:#ff2f7e; --cian:#2fe8ff; --ambre:#ffb020; --lila:#9b5cff;
   --fons:#0a0a0b; --fons-2:#0e0e10; --text:#e9e9ec; --suau:#8a8a8f; --llinia:#232327;
   --accent-fill:#d7ff3e; --accent-text:#d7ff3e; --on-accent:#0a0a0b; --meta:#0a0a0b;
-  --c2:var(--cian); /* segon color del degradat per defecte */
+  --c2:var(--cian);
   --display:"Space Grotesk",system-ui,sans-serif;
   --cos:"IBM Plex Sans",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -20,7 +20,7 @@
   --acid:#8bb500; --magenta:#e0116a; --cian:#0aa8c4; --ambre:#c47600; --lila:#6a2fd6;
   --c2:var(--cian);
 }
-/* 2. MAPA DE COLORS (primer + segon del degradat) */
+/* 2. MAPA DE COLORS */
 [data-color="acid"]{--c:var(--acid); --c2:var(--cian)}
 [data-color="cian"]{--c:var(--cian); --c2:var(--lila)}
 [data-color="magenta"]{--c:var(--magenta); --c2:var(--ambre)}
@@ -34,7 +34,7 @@ h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;font-weight:500;le
 p{margin:0 0 1.1em} a{color:inherit;text-decoration:none} ul,ol{margin:0;padding:0;list-style:none}
 b{font-weight:600;color:#fff} [data-theme="light"] b{color:#000}
 :focus-visible{outline:1px solid var(--accent-text);outline-offset:4px}
-/* 3.5 TÍTOLS EN DEGRADAT (dos colors del estil) */
+/* 3.5 TÍTOLS EN DEGRADAT */
 .hero__nom,
 .seccio-cab h2,
 .peu__titol{
@@ -91,12 +91,14 @@ b{font-weight:600;color:#fff} [data-theme="light"] b{color:#000}
 .seccio-cab{margin-bottom:clamp(2rem,5vw,3.5rem)}
 .seccio-num{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;color:var(--c,var(--suau));display:block;margin-bottom:.9rem}
 .seccio-cab h2{font-size:clamp(2rem,5vw,3.4rem)}
+.seccio-sub{font-family:var(--mono);font-size:.74rem;color:var(--suau);margin:.8rem 0 0}
 .lead{font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.6;font-family:var(--display);font-weight:400;max-width:52ch;color:var(--text)}
 .sobre-cos p{max-width:58ch;color:var(--suau)}
 .cita{margin:2rem 0;padding-left:1.4rem;border-left:2px solid var(--c,var(--acid));font-family:var(--display);font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.4;max-width:40ch;color:var(--text)}
 .píndoles{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
 .píndoles li{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--suau);padding:.4rem .8rem;border:1px solid var(--llinia)}
 .píndoles li:hover{color:var(--c);border-color:var(--c)}
+/* MISSIÓ (llista simple) */
 .missions{border-top:1px solid var(--llinia)}
 .missio{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1rem,3vw,2.4rem);align-items:baseline;padding:1.6rem .2rem;border-bottom:1px solid var(--llinia);transition:var(--trans)}
 .missio:hover{background:var(--fons-2);padding-left:.8rem}
@@ -105,6 +107,10 @@ b{font-weight:600;color:#fff} [data-theme="light"] b{color:#000}
 .missio__cos p{color:var(--suau);margin:0;max-width:60ch}
 .missio__marca{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 55%,transparent);padding:.35rem .7rem;white-space:nowrap}
 .missio__marca--actiu{background:color-mix(in srgb,var(--c) 16%,transparent)}
+/* Foto dins de la missió */
+.missio__foto{margin:1.2rem 0 0;max-width:520px}
+.missio__foto img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border:1px solid color-mix(in srgb,var(--c,var(--acid)) 45%,var(--llinia))}
+.missio__foto figcaption{font-family:var(--mono);font-size:.68rem;color:var(--suau);margin-top:.6rem}
 .inventario{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--llinia);border:1px solid var(--llinia)}
 .objecte{background:var(--fons);padding:1.8rem;position:relative}
 .objecte::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform var(--trans)}
@@ -152,7 +158,8 @@ b{font-weight:600;color:#fff} [data-theme="light"] b{color:#000}
   .nav>ul{overflow:hidden;display:flex;flex-direction:column}
   .nav a{display:block;padding:1rem clamp(1.25rem,5vw,3rem)} .nav a::after{display:none}
   .btn-tema__txt{display:none} .btn-tema{padding:.5rem}
-  .missio{grid-template-columns:1fr;gap:.5rem} .missio__marca{justify-self:start}
+  .missio{grid-template-columns:1fr;gap:.5rem}
+  .missio__marca{justify-self:start}
   .contacte__fila{grid-template-columns:auto 1fr} .copiar{grid-column:2;justify-self:start;margin-top:.4rem}
 }
 /* 10. MOVIMENT REDUÏT */

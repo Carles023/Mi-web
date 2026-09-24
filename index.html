@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -57,14 +57,14 @@
     <section class="hero" id="dalt" aria-labelledby="nom">
       <p class="hero__etiqueta"><span class="punt" aria-hidden="true"></span>1r DAM · IES Simarro · Xàtiva</p>
 
-      <h1 id="nom" class="hero__nom">
+      <h1 id="nom" class="hero__nom" data-color="acid">
         <span class="linia">Carles</span>
-        <span class="linia linia--color" data-color="magenta">Tudela Garcia</span>
+        <span class="linia">Tudela Garcia</span>
       </h1>
 
-      <!-- Frase de marca -->
       <p class="frase">
-        Estudie programació per entendre com poder fer una aplicació, per a poder fer-ne jo una propia
+        Estudie programació per entendre com es munta un videojoc per dins,
+        perquè algun dia el que el munte siga jo.
       </p>
 
       <div class="accions">
@@ -72,7 +72,6 @@
         <a class="btn btn--fantasma" href="#contacte">Parlem</a>
       </div>
 
-      <!-- Dades ràpides -->
       <dl class="dades">
         <div><dt>Centre</dt><dd>IES Simarro</dd></div>
         <div><dt>Cicle</dt><dd>1r DAM</dd></div>
@@ -80,7 +79,6 @@
         <div><dt>Estat</dt><dd class="viu">En construcció</dd></div>
       </dl>
 
-      <!-- Fitxa lateral -->
       <aside class="fitxa" aria-label="Fitxa de perfil">
         <p class="fitxa__cap">Perfil</p>
         <ul class="bares">
@@ -100,7 +98,6 @@
         <span class="seccio-num">01</span>
         <h2 id="sobre-titol">Sobre mí</h2>
       </header>
-
       <div class="sobre-cos">
         <p class="lead reveal">
           Sóc el <b>Carles</b>. Acabe de començar 1r de DAM a l'IES Simarro i tinc molt clar
@@ -108,16 +105,17 @@
           i, a partir d'ací, el meu propi videojoc.
         </p>
         <p class="reveal">
-          Vinc del batxillerat científic, i vaig estudiar especificament física i dibuix técnic.
-          La programació m'atrau perquè sempre m'ha agradat molt treballar amb l'ordinador.
+          Vinc del batxillerat científic, així que la lògica i els números no em són aliens.
+          La programació m'atrau perquè és l'ofici més honest que conec: o funciona, o no funciona.
         </p>
         <blockquote class="cita reveal">
-          A més de agradarme treballar amb l'ordinador, una altra raó per la que he triat DAM és per qué m'agradaria molt crear el meu propi videojoc
+          No estic aprenent a programar per aprovar un mòdul.
+          Estic aprenent a programar per poder fer el meu joc.
         </blockquote>
         <p class="reveal">
-          Tinc el títol B2 d'anglés, que em permet entendre gran part del llenguatge de la programacio fàcilment.  
-          Fora de les pantalles, He jugat al tenis durant 6 anys, 
-          encara que ho vaig tindre que deixar per que m'era impossible atendre als entrenes
+          Tinc el títol B2 d'anglés, cosa que em deixa llegir documentació i tutorials en
+          versió original. Fora de les pantalles, el tennis m'ha ensenyat a entrenar molt
+          temps sense veure resultats.
         </p>
         <ul class="píndoles reveal">
           <li data-color="acid">Autoaprenentatge</li>
@@ -139,32 +137,54 @@
       <ol class="missions">
         <li class="missio reveal">
           <span class="missio__num">01</span>
-          <div class="missio__cos"><h3>Sis anys de tennis</h3>
-            <p>He entrenat dues hores a la setmana durant sis anys i he participat en un xicotet torneig.</p></div>
+          <div class="missio__cos">
+            <h3>Sis anys de tennis</h3>
+            <p>Entrenament, partits i torneigs. Mig miler d'hores aprenent a perdre bé.</p>
+            <!-- IMATGE DEL TENNIS -->
+            <figure class="missio__foto">
+              <img
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.bXkf03RznPMeEYcOZ3LsBQHaE8%3Fpid%3DApi&f=1&ipt=5f02362417446acaf9cb4eab15752ba30ae57dc243fb96aa5427e6033554117a&ipo=images"
+                alt="Pista de tennis amb la xarxa al centre"
+                loading="lazy" width="800" height="533">
+              <figcaption>Tennis · 6 anys de competició.</figcaption>
+            </figure>
+          </div>
           <span class="missio__marca" data-color="acid">Esport</span>
         </li>
+
         <li class="missio reveal">
           <span class="missio__num">02</span>
-          <div class="missio__cos"><h3>Viatge a Noruega</h3>
-            <p>El meu primer viatge per Europa, va ser una experiencia que m'encantaria repetir</p></div>
+          <div class="missio__cos">
+            <h3>Viatge a Noruega</h3>
+            <p>L'estiu passat, fjords i carretera. El primer viatge llarg per mi mateix.</p>
+          </div>
           <span class="missio__marca" data-color="cian">Viatge</span>
         </li>
+
         <li class="missio reveal">
           <span class="missio__num">03</span>
-          <div class="missio__cos"><h3>Batxillerat científic</h3>
-            <p>Haver estudiat batxillerat m'ajuda a tindre un metode d'estudi.</p></div>
+          <div class="missio__cos">
+            <h3>Batxillerat científic</h3>
+            <p>Matemàtiques, física i tecnologia. La base que ara em serveix per a algoritmes.</p>
+          </div>
           <span class="missio__marca" data-color="ambre">Estudis</span>
         </li>
+
         <li class="missio reveal">
           <span class="missio__num">04</span>
-          <div class="missio__cos"><h3>Títol B2 d'anglés</h3>
-            <p>El coneiximent d'angles es molt util en la programacio ja que la probramacio es basa molt en l'angles.</p></div>
+          <div class="missio__cos">
+            <h3>Títol B2 d'anglés</h3>
+            <p>Llegir-ho tot en versió original m'estalvia mesos de traduccions rares.</p>
+          </div>
           <span class="missio__marca" data-color="lila">Idiomes</span>
         </li>
+
         <li class="missio reveal">
           <span class="missio__num">05</span>
-          <div class="missio__cos"><h3>1r de DAM · IES Simarro</h3>
-            <p>Estudiar DAM m'ajudara a complir el meu objectiu de desenvolupar una aplicació propia.</p></div>
+          <div class="missio__cos">
+            <h3>1r de DAM · IES Simarro</h3>
+            <p>Programació, bases de dades i el primer projecte serios. En curs.</p>
+          </div>
           <span class="missio__marca missio__marca--actiu" data-color="magenta">En curs</span>
         </li>
       </ol>
@@ -176,26 +196,25 @@
         <span class="seccio-num">03</span>
         <h2 id="inventari-titol">M'agrada</h2>
       </header>
-
       <div class="inventario">
         <article class="objecte reveal" data-color="magenta" tabindex="0">
           <h3>Super Smash Bros</h3>
-          <p>Va ser un dels primers jocs als que vaig jugar i el que em va fer voler crear un jo mateix.</p>
+          <p>Baralles curtes i quatre amics al voltant d'una pantalla.</p>
           <ul class="chips"><li>Versus</li><li>Local</li></ul>
         </article>
         <article class="objecte reveal" data-color="ambre" tabindex="0">
           <h3>Monster Hunter</h3>
-          <p>Em van introduir a ell els meus amics i he sigut un gran fan desde entonces.</p>
+          <p>Paciència i patrons: cada derrota t'ensenya què et falta.</p>
           <ul class="chips"><li>Co-op</li><li>Grind</li></ul>
         </article>
         <article class="objecte reveal" data-color="cian" tabindex="0">
           <h3>Hollow Knight</h3>
-          <p>Un joc el qual el seu mon em va deixar impressionat.</p>
+          <p>El joc que em va fer preguntar-me com es dissenya un món.</p>
           <ul class="chips"><li>Metroidvania</li><li>Art</li></ul>
         </article>
         <article class="objecte reveal" data-color="acid" tabindex="0">
           <h3>Magic: The Gathering</h3>
-          <p>Algunes vesprades amb els meus amics fent estrategies molt divertides.</p>
+          <p>Tards amb els amics muntant cobertes: estratègia i matemàtica.</p>
           <ul class="chips"><li>TCG</li><li>Amb amics</li></ul>
         </article>
       </div>
@@ -207,7 +226,6 @@
         <span class="seccio-num">04</span>
         <h2 id="ruta-titol">Cap a on vaig</h2>
       </header>
-
       <ol class="ruta">
         <li class="ruta__pas reveal" data-color="acid"><span>01</span><h3>Fonaments</h3><p>Acabar DAM i dominar Java, C# i estructures.</p></li>
         <li class="ruta__pas reveal" data-color="cian"><span>02</span><h3>Motor</h3><p>Tocar Unity o Godot i entendre el bucle de joc.</p></li>
@@ -219,7 +237,7 @@
 
   </main>
 
-   <!-- PEU / CONTACTE -->
+  <!-- PEU / CONTACTE -->
   <footer class="peu" id="contacte">
     <div class="peu__dalt">
       <div>
@@ -233,14 +251,15 @@
       <address class="contacte">
         <div class="contacte__fila">
           <span>Correu</span>
-          <a href="mailto:carlestudelagarcia15@gmail.com" id="mail">carlestudelagarcia15@gmail.com</a>
+          <a href="mailto:carles.tudela@exemple.com" id="mail">carles.tudela@exemple.com</a>
           <button class="copiar" id="copiar" type="button">Copiar</button>
         </div>
-        <div class="contacte__fila"><span>Ubicació</span><p>València</p></div>
+        <div class="contacte__fila"><span>Ubicació</span><p>Xàtiva · València</p></div>
+        <div class="contacte__fila"><span>Disponibilitat</span><p>Projectes i col·laboracions</p></div>
         <!-- XARXES: només GitHub -->
         <ul class="xarxes">
           <li>
-            <a href="https://github.com/carles023" target="_blank" rel="me noopener noreferrer">GitHub · @carles023</a>
+            <a href="https://github.com/carlestudela" target="_blank" rel="me noopener noreferrer">GitHub · @carlestudela</a>
           </li>
         </ul>
       </address>
